@@ -1,6 +1,5 @@
 package org.bedu;
 
-import javax.xml.crypto.Data;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,6 +29,15 @@ public class Database {
 
     public void clear() {
         db.clear();
+    }
+
+    public void update(Product updatedProduct) {
+        for (Product product : db) {
+            if (product.getId() == updatedProduct.getId()) {
+                product.setName(updatedProduct.getName());
+                return;
+            }
+        }
     }
 
 }

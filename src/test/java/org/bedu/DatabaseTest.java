@@ -59,4 +59,22 @@ public class DatabaseTest {
 
         assertEquals(db.size(), 0);
     }
+
+    @Test
+    @DisplayName("Database can be updated")
+    public void update(){
+        db.insert(new Product(1, "Coca Cola 3lt"));
+        db.insert(new Product(2, "Gansito"));
+        db.insert(new Product(3, "Mordisko"));
+        db.insert(new Product(4, "Sabritas 30g"));
+
+        assertEquals(db.size(), 4);
+
+        Product p = new Product(4, "Fritos");
+        db.update(p);
+
+        Product updatedProduct = db.getById(4);
+
+        assertEquals(updatedProduct.getName(), "Fritos");
+    }
 }
