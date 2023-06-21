@@ -40,4 +40,12 @@ public class Database {
         }
     }
 
+    public Product delete(long id){
+        for(Product product : db){
+            if(product.getId() == id)
+                db.remove(product);
+        }
+        return null;
+    }
+
 }

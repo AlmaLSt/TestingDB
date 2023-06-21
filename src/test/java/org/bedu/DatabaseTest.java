@@ -77,4 +77,19 @@ public class DatabaseTest {
 
         assertEquals(updatedProduct.getName(), "Fritos");
     }
+
+    @Test
+    @DisplayName("DB can delete")
+    public void delete(){
+        db.insert(new Product(1, "Coca Cola 3lt"));
+        db.insert(new Product(2, "Gansito"));
+        db.insert(new Product(3, "Mordisko"));
+        db.insert(new Product(4, "Sabritas 30g"));
+
+        assertEquals(db.size(), 4);
+
+        Product p = db.delete(4);
+
+        assertEquals(db.size(),3);
+    }
 }
